@@ -5,19 +5,19 @@
 @preview_image = '/img/pages/gnupg.png'
 @preview = "We've participated in the 2nd OpenPGP email summit were we had the oportunity to exchange ideas with many other projects."
 
-The [2nd OpenPGP email summit](https://wiki.gnupg.org/OpenPGPEmailSummit201512) took place in Zurich the 5th and 6th of December. LEAP was there among many other projects working on protecting email communications. It's being an intense weekend where we had the oportunity to hear from other projects how they are doing things and to discuss on how to solve common problems.
+The [2nd OpenPGP email summit](https://wiki.gnupg.org/OpenPGPEmailSummit201512) took place in Zurich the 5th and 6th of December. LEAP was there among many other projects working on protecting email communications. It's been an intense weekend where we had the oportunity to hear from other projects how they are doing things and to discuss on how to solve common problems.
 
-There was many working sessions on variety of topics (from email validation on key servers to password recovery). I'm going to highlight some topics that I think where very interesting.
+There were many working sessions on a variety of topics (from email validation on key servers to password recovery). I'm going to highlight some topics that I think were very interesting.
 
 # Encrypted Indexes
 
-We've talked on how to index inboxes in a privacy preserving way. Considering how most users access their email now a days on a web browser loading what they need on demand we talked on how that could be done in a secure manor.
+We've talked on how to index inboxes in a privacy preserving way. Considering how most users access their email nowadays, on a web browser loading what they need on demand, we talked on how that could be done in a secure manner.
 
 Assuming that you have the index in perfectly secure way, or locally stored or an ideal nifty way in the provider where you can do queries and the provider can not guess the content of the queries. Let's first assume that you have your emails stored as they arrive, your encrypted email is stored encrypted and your decrypted email is stored decrypted. After each query you retrieve the resulted emails, so the server sees which decrypted emails are related to which encrypted ones and in the long term can infer the content of the encrypted ones as well.
 
-Let's imagine then that you store all the emails encrypted. Then your provider could send to you crafted emails with the kind of content she cares about to discover, so it can notice each time you retrieve one of this crafted emails and what other emails are related to that. You could minimize this attack by not only fetching the emails that you care about, but fetch way more. But at the end or you have your whole set of emails locally or the server will be able to infer data about the encrypted emails. 
+Let's imagine then that you store all the emails encrypted. Then your provider could send to you crafted emails with the kind of content she cares about to discover, so it can notice each time you retrieve one of this crafted emails and what other emails are related to that. You could minimize this attack by not only fetching the emails that you care about, but fetch way more. But at the end or you have your whole set of emails locally or the server will be able to infer data about the encrypted emails.
 
-We reach the conclusion that the only privacy preserving way to access the email is to have the whole archive of the email locally accessible. We need to get back to the 90s.
+We reached the conclusion that the only privacy preserving way to access the email is to have the whole archive of the email locally accessible. We need to get back to the 90s.
 
 # Header Encryption and Signing with "Memory Hole"
 
@@ -31,10 +31,10 @@ We had many interesting conversations on how Memory Hole will work, what are it'
 
 # Scaling Key Servers
 
-The Google e2e project is working on ways to endorse keys from the provider in a auditable way. They are taking ideas from [CONIKS](http://www.coniks.org/) and [Certificate Transparency](https://www.certificate-transparency.org/) to create robust system.
+The Google e2e project is working on ways to endorse keys from the provider in a auditable way. They are taking ideas from [CONIKS](http://www.coniks.org/) and [Certificate Transparency](https://www.certificate-transparency.org/) to create a robust system.
 
-Their proposal is to have a log of all the published keys in each provider, this log keeps all its history in a way that you can not modify past records without modifying the latest one. There will be monitors run by independent organizations that observe this logs. So when a Alice wants to discover the key of Bob can ask Bob's provider for the key and check with one of this monitors to certify that the key she is obtaining is the same than Bob's provider is publishing to everybody else. Bob can also audit that his provider is publishing his own key and not a malicious one using this monitors.
+Their proposal is to have a log of all the published keys in each provider, this log keeps all its history in a way that you can not modify past records without modifying the latest one. There will be monitors run by independent organizations that observe these logs. So when Alice wants to discover the key of Bob, she can ask Bob's provider for the key and check with one of these monitors to certify that the key she is obtaining is the same than Bob's provider is publishing to everybody else. Bob can also audit that his provider is publishing his own key and not a malicious one using this monitors.
 
 The system is designed in a way that is easy to retrieve the key of someone, but hard to discover the list of keys available. So an attacker can't easily find all the email addresses in the provider.
 
-The system is complicated and will need some time to be reviewed and discussed by the community, but has potential. There is still many questions on things like how to react if a provider is found publishing malicious keys.
+The system is complicated and will need some time to be reviewed and discussed by the community, but has potential. There are still many questions on things like how to react if a provider is found publishing malicious keys.
